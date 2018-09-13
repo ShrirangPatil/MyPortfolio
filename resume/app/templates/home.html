@@ -1,7 +1,38 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
+
+<style>
+td, th {
+	vertical-align: top;
+    text-align: left;
+    padding: 16px;
+}
+
+</style>
 <div class="tab-pane fade in active" >
-  <h3>HOME</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	
+	<div class = "container" style=" padding: 50px 50px 50px 60px">
+		<div class = "row">
+			<div class = "col-sm-10">
+				<div class = "white-box">
+					<div class="form-group">
+						<table>
+							<tr>
+								<td>
+									<img src="{% static "app/me.jpg" %}" alt="Image" height="300" width="300">
+								</td>
+								<td>
+									<h2>Bio</h2>
+									<h3>Something garbage text sva sagvga asfbnho;j sjgvpsjp ihnsvlnlk </h3>
+								</td>
+							</tr>	
+						</table>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 {% endblock %}
