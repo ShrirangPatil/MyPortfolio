@@ -1,7 +1,62 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
+<style>
+td, th {
+	vertical-align: top;
+    text-align: justify;
+}
+body {
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+</style>
 <div class="tab-pane fade in active" >
-  <h3>Skills</h3>
-  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+  <div class = "container" style=" padding: 50px 50px 50px 60px">
+		<div class = "row">
+			<div class = "col-sm-10">
+				<div class = "white-box">
+					<div class="form-group">
+								<table>
+									<tr>
+										<td>
+											<a href="https://github.com/ShrirangPatil/MyTechFarmApp"><h3>TechFarm</h3></a>
+										</td>
+										<td>
+											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
+										</td>
+										<td>
+											<h4>{{ descAndroidApp }}</h4>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="https://github.com/ShrirangPatil/GraphicalSorting"><h3>Graphical Sorting</h3></a>
+										</td>
+										<td>
+											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
+										</td>
+										<td>
+											<h4>{{ descGraphicalSort }}</h4>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="https://github.com/ShrirangPatil/Rainfall-Precipitation"><h3>Rainfall Precipitation</h3></a>
+										</td>
+										<td>
+											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
+										</td>
+										<td>
+											<h4>{{ descRainPrep }}</h4>
+										</td>
+									</tr>
+								</table>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}

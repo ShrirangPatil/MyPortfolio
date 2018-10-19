@@ -1,0 +1,36 @@
+{% extends "baseEdit.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+</style>
+<div  style = "padding: 50px 0px 0px 0px;">
+<table >
+	<tr>
+			<a href="/app/workExperience/"><button class="button button3 btn-block">Work Experience</button></a>
+	</tr>
+	<tr>
+			<a href="/app/acadamic/"><button class="button btn-block">Academics</button></a>
+	</tr>
+	<tr>
+			<a href="/app/ACS/"><button class="button button2 btn-block">ACS</button></a>
+	</tr>
+</table>
+</div>
+{% endblock %}
