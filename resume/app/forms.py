@@ -39,10 +39,10 @@ class workExpForm(forms.Form):
                                     'class':'datepicker'
                                 }), help_text = "YYYY-MM-DD")
 
-class acadamicForm(forms.Form):
+class academicForm(forms.Form):
 	school = forms.CharField(label = 'School', max_length=50)
 	yearOfPassing = forms.CharField(label = 'Year Of Passing', max_length=4, help_text='YYYY')
-	specific = forms.CharField(label = 'Specific', max_length=20, help_text='Computer Science/ State Board')
+	specific = forms.CharField(label = 'Specific', max_length=25, help_text='Computer Science/ State Board')
 	score = forms.CharField(label = 'Score', max_length=6, help_text='Percentage/ CGPA')
 
 class ACSForm(forms.Form):
@@ -51,3 +51,7 @@ class ACSForm(forms.Form):
 	language = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Programming Language", max_length = 1000, help_text="Seperate them by enter")
 	software = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Software Tools", max_length = 1000, help_text="Seperate them by enter")
 	frameWorks = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Frame Works", max_length = 1000, help_text="Seperate them by enter")
+
+class loginForm(forms.Form):
+	userName = forms.CharField(label="User Name",max_length=30)
+	passWord = forms.CharField(max_length=32, widget=forms.PasswordInput)

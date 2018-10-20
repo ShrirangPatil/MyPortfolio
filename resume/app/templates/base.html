@@ -12,7 +12,9 @@
 <body background="{% static "app/background.jpg" %}" style="background-attachment: fixed;">
 
 <div class="container"style="padding: 25px 0px 25px 0px">
-  <h3 style="color:white">Shrirang R Patil</h3>
+  <div style="">
+    <a href="/app/editMenu/"><h3 style="color:white">Shrirang R Patil</h3></a>
+  </div>
   <br/>
   <ul class="nav nav-pills nav-justified">
     <li class={{ active1 }}><a href="http://127.0.0.1:8000/app/home" style="color:white">Home</a></li>
@@ -22,6 +24,11 @@
   </ul>
 
   <div class="tab-content" style="color:white">
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-sussess">{{ m }}</div>
+        {% endfor %}
+      {% endif %}
       {% block content %}
       {% endblock %}
   </div>

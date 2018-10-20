@@ -20,13 +20,14 @@
 .button2 {background-color: #008CBA;} /* Blue */
 .button3 {background-color: #f44336;} /* Red */ 
 </style>
+{% csrf_token %}
 <div  style = "padding: 50px 0px 0px 0px;">
 <table >
 	<tr>
 			<a href="/app/workExperience/"><button class="button button3 btn-block">Work Experience</button></a>
 	</tr>
 	<tr>
-			<a href="/app/acadamic/"><button class="button btn-block">Academics</button></a>
+			<a href="/app/academic/"><button class="button btn-block">Academics</button></a>
 	</tr>
 	<tr>
 			<a href="/app/ACS/"><button class="button button2 btn-block">ACS</button></a>

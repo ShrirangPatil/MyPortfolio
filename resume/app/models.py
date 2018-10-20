@@ -9,10 +9,10 @@ class workExperienceModel(models.Model):
 	class Meta:
 		db_table = "work_experience"
 
-# class acadamicModel(models.Model):
-# 	school = models.CharField(max_length = 25)
-# 	year_of_passing = models.CharField(max_length = 4)
-# 	specific = models.CharField(max_length = 25)
-# 	score = models.CharField(max_length = 6)
-# 	class Meta:
-# 		db_table = "acadamic"
+class academicModel(models.Model):
+	school = models.CharField(max_length = 50)
+	year_of_passing = models.CharField(max_length = 4)
+	specific = models.CharField(max_length = 25)
+	score = models.CharField(max_length = 6)
+	class Meta:
+ 		db_table = "acadamic"

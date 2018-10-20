@@ -14,10 +14,24 @@
 <body background="{% static "app/iB.jpg" %}" style="background-repeat: no-repeat; background-position: 55% 00%;">
     <div class = "container" style=" padding: 140px 50px 50px 50px">
         <div class = "row">
-            <h2>{{ type }}</h2>
+            <table>
+              <tr>
+                <td style="width: 100%">
+                  <h2>{{ type }}</h2>
+                </td>
+                <td style="width:100%">
+                  <a href="/app/logout/"><button class="btn btn-primary btn-block">Exit</button></a>
+                </td>
+              </tr>
+            </table>
             <div class = "col-sm-12">
                 <div class = "white-box">
                     <div class="form-group">
+                        {% if messages %}
+                          {% for m in messages %}
+                            <div class="alert alert-sussess">{{ m }}</div>
+                          {% endfor %}
+                        {% endif %}
                         {% block content %}
                         {% endblock %}
                     </div>
