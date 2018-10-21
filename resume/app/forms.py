@@ -50,6 +50,7 @@ class ACSForm(forms.Form):
 	certificate = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Certificate", max_length = 1000, help_text="Seperate them by enter")
 	language = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Programming Language", max_length = 1000, help_text="Seperate them by enter")
 	software = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Software Tools", max_length = 1000, help_text="Seperate them by enter")
+	database = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Database", max_length = 1000, help_text="Seperate them by enter")
 	frameWorks = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'cols': 40}),label = "Frame Works", max_length = 1000, help_text="Seperate them by enter")
 
 class loginForm(forms.Form):

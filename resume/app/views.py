@@ -16,6 +16,12 @@ from app.forms import ACSForm
 # models
 from app.models import workExperienceModel
 from app.models import academicModel
+from app.models import achievementModel
+from app.models import certificateModel
+from app.models import progLanguageModel
+from app.models import softwareToolModel
+from app.models import databaseModel
+from app.models import frameworkModel
 
 # Create your views here.
 # Home and Bio 
@@ -80,7 +86,7 @@ def academicEdit(request):
 				specific = specificF,
 				score = scoreF,
 			)
-			academic_model.save()
+			#academic_model.save()
 			messages.success(request, 'Updated Successfully')
 		else:
 			messages.success(request, 'Invalid Input')
@@ -98,8 +104,39 @@ def ACSEdit(request):
 			certificateF = form.cleaned_data['certificate']
 			languageF = form.cleaned_data['language']
 			softwareF = form.cleaned_data['software']
+			databaseF = form.cleaned_data['database']
 			frameWorksF = form.cleaned_data['frameWorks']
-			print(achievementF, certificateF, languageF, frameWorksF)
+			for i in achievementF.split('\n'):
+				achievement_model = achievementModel(
+					achievements = i
+				)
+				#achievement_model.save()
+			for i in certificateF.split('\n'):
+				certificate_model = certificateModel(
+					certification = i
+				)
+				#certificate_model.save()
+			for i in languageF.split('\n'):
+				prog_lang_model = progLanguageModel(
+					language = i
+				)
+				#prog_lang_model.save()
+			for i in softwareF.split('\n'):
+				soft_model = softwareToolModel(
+					software = i
+				)
+				#soft_model.save()
+			for i in databaseF.split('\n'):
+				database_model = databaseModel(
+					databases = i
+				)
+				#database_model.save()
+			for i in frameWorksF.split('\n'):
+				framework_model = frameworkModel(
+					frameworks = i
+				)
+				#framework_model.save()
+			#print(achievementF, certificateF, languageF, frameWorksF)
 			messages.success(request, 'Updated Successfully')
 		else:
 			messages.success(request, 'Invalid Input')
