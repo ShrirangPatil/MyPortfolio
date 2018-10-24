@@ -11,6 +11,7 @@ urlpatterns = [
     path('workExperience/', views.workExpEdit, name="workExperience"),
     path('academic/', views.academicEdit, name="academic"),
     path('ACS/', views.ACSEdit, name="ACS"),
+    path('projectForm/', views.projectEdit, name="projectForm"),
     path('editMenu/', views.editMenu, name="editMenu"),
     path('login/', views.myLogin, name='login'),
     path('logout/', views.myLogout, name='logout'),

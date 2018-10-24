@@ -46,3 +46,11 @@ class frameworkModel(models.Model):
 	frameworks = models.CharField(max_length=20)
 	class Meta:
 		db_table = "framework"
+
+class projectEditModel(models.Model):
+	title = models.CharField(max_length=50)
+	picOfPro = models.ImageField(upload_to = 'app/static/media/', default = '/static/media/no-img.png')
+	link = models.CharField(max_length=200)
+	description = models.CharField(max_length=1000)
+	class Meta:
+		db_table = "project_edit"

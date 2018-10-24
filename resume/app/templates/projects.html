@@ -5,6 +5,7 @@
 td, th {
 	vertical-align: top;
     text-align: justify;
+    padding: 5px 10px 5px 5px;
 }
 body {
 background-repeat: no-repeat;
@@ -17,42 +18,21 @@ background-size: 100% 100%;
 			<div class = "col-sm-10">
 				<div class = "white-box">
 					<div class="form-group">
-								<table>
-									<tr>
-										<td>
-											<a href="https://github.com/ShrirangPatil/MyTechFarmApp"><h3>TechFarm</h3></a>
-										</td>
-										<td>
-											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
-										</td>
-										<td>
-											<h4>{{ descAndroidApp }}</h4>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="https://github.com/ShrirangPatil/GraphicalSorting"><h3>Graphical Sorting</h3></a>
-										</td>
-										<td>
-											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
-										</td>
-										<td>
-											<h4>{{ descGraphicalSort }}</h4>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="https://github.com/ShrirangPatil/Rainfall-Precipitation"><h3>Rainfall Precipitation</h3></a>
-										</td>
-										<td>
-											<img src="{% static "app/proIcon.png" %}" alt="Image" height="150" width="150">
-										</td>
-										<td>
-											<h4>{{ descRainPrep }}</h4>
-										</td>
-									</tr>
-								</table>
-							
+						<table>
+						{% for val in lisOfValues %}
+							<tr>
+									<td>
+										<a href="{{ val.link }}"><h3>{{ val.title }}</h3></a>
+									</td>
+									<td>
+										<img src="{{ val.picture }}" alt="Image" height="150" width="150">
+									</td>
+									<td>
+										<h4>{{ val.desc }}</h4>
+									</td>
+							</tr>
+						{% endfor %}
+						</table>
 					</div>
 				</div>
 			</div>

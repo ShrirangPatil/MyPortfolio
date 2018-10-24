@@ -1,0 +1,16 @@
+{% extends "baseEdit.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="/app/projectForm/" method='POST' enctype="multipart/form-data">
+    <div>
+    	{% csrf_token %}
+        {{ projectForm|crispy }}
+    </div>
+    <div>
+    	<input type="submit" value="Submit" >
+        <input type="reset" value="Reset">
+    </div>
+</form>
+{% endblock %}
