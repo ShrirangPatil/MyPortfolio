@@ -1,2 +1,2 @@
 # Portfolio
-The website is build using django-2.1 framework, its still under progress.
+The website is built using django-2.1 framework, its still under progress.
