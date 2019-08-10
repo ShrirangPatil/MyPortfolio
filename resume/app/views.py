@@ -11,6 +11,7 @@ from app.forms import workExpForm
 from app.forms import academicForm
 from app.forms import ACSForm
 from app.forms import projectForm
+from app.forms import deleteDataForm
 
 # models
 from app.models import workExperienceModel
@@ -276,3 +277,115 @@ def myLogin(request):
 def myLogout(request):
 	logout(request)
 	return redirect('/app/home/')
+
+def getDatabases():
+	return (	("workExperienceModel", "workExperienceModel"),
+		("academicModel", "academicModel"),
+		("achievementModel", "achievementModel"), 
+		("certificateModel", "certificateModel"),
+		("progLanguageModel", "progLanguageModel"),
+		("softwareToolModel", "softwareToolModel"),
+		("databaseModel", "databaseModel"),
+		("frameworkModel", "frameworkModel"),
+		("projectEditModel", "projectEditModel")
+		)
+@login_required(login_url = "/app/login")
+def deleteData(request):
+	if request.method == "POST":
+		form = deleteDataForm(request.POST)
+		form.fields['selDatabase'].choices = getDatabases()
+		if form.is_valid():
+			selectedDatabase = form.cleaned_data.get('selDatabase')
+			form.fields['selDatabaseID'].disabled = False
+			rowID = form.cleaned_data['selDatabaseID']
+			displayData = []
+			if selectedDatabase == "workExperienceModel":
+				data = workExperienceModel.objects.all()
+				displayData.append(['id','company', 'designation', 'start_date', 'end_date'])
+				for d in data:
+					displayData.append([d.id, d.company, d.designation, d.start_date, d.end_date])
+				if rowID != None:
+					workExperienceModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "academicModel":
+				data = academicModel.objects.all()
+				displayData.append(['id','school', 'designation', 'start_date', 'end_date'])
+				for d in data:
+					displayData.append([d.id, d.school, d.year_of_passing, d.specific, d.score])
+				if rowID != None:
+					academicModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "achievementModel":
+				data = achievementModel.objects.all()
+				displayData.append(['id', 'achievements',])
+				for d in data:
+					displayData.append([d.id, d.achievements,])
+				if rowID != None:
+					achievementModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "certificateModel":
+				data = certificateModel.objects.all()
+				displayData.append(['id', 'certification',])
+				for d in data:
+					displayData.append([d.id, d.certification,])
+				if rowID != None:
+					certificateModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "progLanguageModel":
+				data = progLanguageModel.objects.all()
+				displayData.append(['id', 'language',])
+				for d in data:
+					displayData.append([d.id, d.language,])
+				if rowID != None:
+					progLanguageModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "softwareToolModel":
+				data = softwareToolModel.objects.all()
+				displayData.append(['id', 'software',])
+				for d in data:
+					displayData.append([d.id, d.software,])
+				if rowID != None:
+					softwareToolModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "databaseModel":
+				data = databaseModel.objects.all()
+				displayData.append(['id', 'databases',])
+				for d in data:
+					displayData.append([d.id, d.databases,])
+				if rowID != None:
+					databaseModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "frameworkModel":
+				data = frameworkModel.objects.all()
+				displayData.append(['id', 'frameworks',])
+				for d in data:
+					displayData.append([d.id, d.frameworks,])
+				if rowID != None:
+					frameworkModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			elif selectedDatabase == "projectEditModel":
+				data = projectEditModel.objects.all()
+				displayData.append(['id', 'title', 'picOfPro', 'link', 'description'])
+				for d in data:
+					displayData.append([d.id, d.title, d.picOfPro, d.link, d.description])
+				if rowID != None:
+					projectEditModel.objects.filter(id=rowID).delete()
+					messages.success(request, 'Updated Successfully')
+					return redirect('/app/editMenu/')
+			messages.success(request, 'Select the row ID')
+			return render(request, "deleteData.html", {"form":form, "data":displayData})
+		else:
+			return HttpResponse("Error in validating the form")
+	else:
+		form = deleteDataForm()
+		form.fields['selDatabase'].choices = getDatabases()
+		form.fields['selDatabaseID'].disabled = True
+		return render(request, "deleteData.html", {"form":form, "data":""})

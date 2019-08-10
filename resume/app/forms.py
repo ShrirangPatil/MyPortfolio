@@ -53,3 +53,17 @@ class projectForm(forms.Form):
 class loginForm(forms.Form):
 	userName = forms.CharField(label="User Name",max_length=30)
 	passWord = forms.CharField(max_length=32, widget=forms.PasswordInput)
+
+class deleteDataForm(forms.Form):
+	#selDatabase = forms.ChoiceField(choices = (), label="", initial='', widget=forms.Select(), required=True)
+	selDatabase = forms.ChoiceField(
+		label = "Subject Codes",
+        widget=forms.Select(),
+        choices=())
+	selDatabaseID = forms.IntegerField(label="Row Id", min_value=1,max_value=10000, required = False)
+	def __init__(self, *args, **kwargs):
+		super(deleteDataForm, self).__init__(*args, **kwargs)
+		self.fields['selDatabase'] = forms.ChoiceField(
+			label = "Subject Codes",
+			widget=forms.Select(),
+			choices=())

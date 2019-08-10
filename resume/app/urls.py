@@ -13,6 +13,7 @@ urlpatterns = [
     path('ACS/', views.ACSEdit, name="ACS"),
     path('projectForm/', views.projectEdit, name="projectForm"),
     path('editMenu/', views.editMenu, name="editMenu"),
+    path('deleteDataForm/', views.deleteData, name='deleteDataForm'),
     path('login/', views.myLogin, name='login'),
     path('logout/', views.myLogout, name='logout'),
 ]

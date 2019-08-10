@@ -1,0 +1,45 @@
+{% extends "baseEdit.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<form action="/app/deleteDataForm/" method='POST'>
+    <div>
+    	{% csrf_token %}
+        {{ form|crispy }}
+        <table>
+          <tr> 
+            {% for i in data %}
+              {% for j in i %}
+                <td>
+                  <Strong>{{ j }}</Strong>
+                </td>
+              {% endfor %}
+          </tr> 
+            {% endfor %}
+        </table>
+
+    </div>
+    <div>
+    	<input type="submit" value="Submit" >
+        <input type="reset" value="Reset">
+    </div>
+</form>
+{% endblock %}
